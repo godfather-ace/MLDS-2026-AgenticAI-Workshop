@@ -1,4 +1,4 @@
-# 🤖 Locally Deployed AI Research Agent
+# 🤖 Locally/AWS Deployed AI Research Agent
 
 A multi-agent AI research assistant built with **OpenAI Agents SDK** and **Streamlit**, containerised with Docker and deployed to AWS ECS via **AWS Copilot**.
 
