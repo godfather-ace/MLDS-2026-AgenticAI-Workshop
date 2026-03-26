@@ -1,0 +1,115 @@
+sachintripathi@Sachins-MacBook-Air copilot_dem % copilot init
+Note: It's best to run this command in the root of your Git repository.
+Welcome to the Copilot CLI! We're going to walk you through some questions
+to help you get set up with a containerized application on AWS. An application is a collection of
+containerized services that operate together.
+
+Use existing application: No
+Dockerfile: ./Dockerfile
+Ok great, we'll set up a Load Balanced Web Service named ragagentservice in application ragagent.
+
+✔ Proposing infrastructure changes for stack ragagent-infrastructure-roles
+- Creating the infrastructure for stack ragagent-infrastructure-roles                           [create complete]  [41.1s]
+  - A StackSet admin role assumed by CloudFormation to manage regional stacks                   [create complete]  [18.1s]
+  - An IAM role assumed by the admin role to create ECR repositories, KMS keys, and S3 buckets  [create complete]  [19.4s]
+✔ The directory copilot will hold service manifests for application ragagent.
+
+Note: Architecture type arm64 has been detected. We will set platform 'linux/x86_64' instead. If you'd rather build and run as architecture type arm64, please change the 'platform' field in your workload manifest to 'linux/arm64'.
+✔ Manifest file for service ragagentservice already exists at copilot/ragagentservice/manifest.yml, skipping writing it.
+Your manifest contains configurations like your container size and port.
+
+- Update regional resources with stack set "ragagent-infrastructure"  [succeeded]  [0.0s]
+All right, you're all set for local development.
+Deploy: Yes
+Only found one option, defaulting to: Create a new environment
+Environment name: prod
+Environment prod does not yet exist in application ragagent; initializing it.
+✔ Manifest file for environment prod already exists at copilot/environments/prod/manifest.yml, skipping writing it.
+- Update regional resources with stack set "ragagent-infrastructure"  [succeeded]  [0.0s]
+- Update regional resources with stack set "ragagent-infrastructure"  [succeeded]        [40.7s]
+  - Update resources in region "us-east-1"                            [create complete]  [39.1s]
+    - KMS key to encrypt pipeline artifacts between stages            [create complete]  [16.6s]
+    - ECR container image repository for "ragagentservice"            [create complete]  [2.2s]
+    - S3 Bucket to store local artifacts                              [create complete]  [2.6s]
+✔ Proposing infrastructure changes for the ragagent-prod environment.
+- Creating the infrastructure for the ragagent-prod environment.  [create complete]  [44.4s]
+  - An IAM Role for AWS CloudFormation to manage resources        [create complete]  [18.5s]
+  - An IAM Role to describe resources in your environment         [create complete]  [18.5s]
+✔ Provisioned bootstrap resources for environment prod in region us-east-1 under application ragagent.
+✔ Provisioned bootstrap resources for environment prod.
+✔ Proposing infrastructure changes for the ragagent-prod environment.
+- Creating the infrastructure for the ragagent-prod environment.                       [update complete]  [68.6s]
+  - An ECS cluster to group your services                                              [create complete]  [4.2s]
+  - A security group to allow your containers to talk to each other                    [create complete]  [4.6s]
+  - An Internet Gateway to connect to the public internet                              [create complete]  [17.4s]
+  - A resource policy to allow AWS services to create log streams for your workloads.  [create complete]  [3.7s]
+  - Private subnet 1 for resources with no internet access                             [create complete]  [0.0s]
+  - Private subnet 2 for resources with no internet access                             [create complete]  [4.3s]
+  - A custom route table that directs network traffic for the public subnets           [create complete]  [13.0s]
+  - Public subnet 1 for resources that can access the internet                         [create complete]  [4.6s]
+  - Public subnet 2 for resources that can access the internet                         [create complete]  [0.0s]
+  - A private DNS namespace for discovering services within the environment            [create complete]  [41.3s]
+  - A Virtual Private Cloud to control networking of your AWS resources                [create complete]  [13.1s]
+✔ Successfully deployed environment prodLogin Succeeded
+[+] Building 1.7s (11/11) FINISHED                                                                                                                                                                   docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                                                                 0.0s
+ => => transferring dockerfile: 272B                                                                                                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/python:3.11.12-slim-bullseye                                                                                                                                      1.6s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                                                                        0.0s
+ => [internal] load .dockerignore                                                                                                                                                                                    0.0s
+ => => transferring context: 2B                                                                                                                                                                                      0.0s
+ => [1/5] FROM docker.io/library/python:3.11.12-slim-bullseye@sha256:ef5bda33991f10d7f4cc585e8aa9f793bb7c62446d56cc0882a8ce4e59cd8adc                                                                                0.0s
+ => => resolve docker.io/library/python:3.11.12-slim-bullseye@sha256:ef5bda33991f10d7f4cc585e8aa9f793bb7c62446d56cc0882a8ce4e59cd8adc                                                                                0.0s
+ => [internal] load build context                                                                                                                                                                                    0.0s
+ => => transferring context: 460B                                                                                                                                                                                    0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                                                                                                                        0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                                                                                                                                             0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                                                                                                                                                  0.0s
+ => CACHED [5/5] COPY . .                                                                                                                                                                                            0.0s
+ => exporting to image                                                                                                                                                                                               0.0s
+ => => exporting layers                                                                                                                                                                                              0.0s
+ => => exporting manifest sha256:9f23106ff88df344eda3da84f62fd5c86f05b9d32ca21f60df747d3623f895a3                                                                                                                    0.0s
+ => => exporting config sha256:6d96694a01243f80e79e0c81a30c2e924f54263b7b019b714fd18fa9a0902785                                                                                                                      0.0s
+ => => exporting attestation manifest sha256:22d0b32409ccafc2f226e7750ff91abda198e09350bf638c080debe6efb0da7d                                                                                                        0.0s
+ => => exporting manifest list sha256:760354164c5a2f5ecde49e8b8bd674a9cdce96eb05796a4c5652a9fc9ffb6933                                                                                                               0.0s
+ => => naming to 730335416601.dkr.ecr.us-east-1.amazonaws.com/ragagent/ragagentservice:latest                                                                                                                        0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/bxpovqxukdp8l905und3w7yoq
+The push refers to repository [730335416601.dkr.ecr.us-east-1.amazonaws.com/ragagent/ragagentservice]
+8b66f7b9f7e3: Pushed 
+21a81ae1d51a: Pushed 
+c6a74ef24206: Pushed 
+19d5915c1fb3: Pushed 
+d390ab924a5d: Pushed 
+e05fc04b0440: Pushed 
+85734126d4b8: Pushed 
+e1f16b66c2e8: Pushed 
+e8cd3ccaa009: Pushed 
+latest: digest: sha256:760354164c5a2f5ecde49e8b8bd674a9cdce96eb05796a4c5652a9fc9ffb6933 size: 856
+✔ Proposing infrastructure changes for stack ragagent-prod-ragagentservice
+- Creating the infrastructure for stack ragagent-prod-ragagentservice             [create complete]  [465.1s]
+  - Service discovery for your services to communicate within the VPC             [create complete]  [0.0s]
+  - Update your environment's shared resources                                    [update complete]  [147.6s]
+    - A security group for your load balancer allowing HTTP traffic               [create complete]  [9.7s]
+    - An Application Load Balancer to distribute public traffic to your services  [create complete]  [125.8s]
+    - A load balancer listener to route HTTP traffic                              [create complete]  [4.7s]
+  - An IAM role to update your environment stack                                  [create complete]  [16.5s]
+  - An IAM Role for the Fargate agent to make AWS API calls on your behalf        [create complete]  [16.5s]
+  - An HTTP listener rule for path `/` that forwards HTTP traffic to your tasks   [create complete]  [0.0s]
+  - A custom resource assigning priority for HTTP listener rules                  [create complete]  [0.0s]
+  - A CloudWatch log group to hold your service logs                              [create complete]  [7.6s]
+  - An IAM Role to describe load balancer rules for assigning a priority          [create complete]  [16.5s]
+  - An ECS service to run and maintain your tasks in the environment cluster      [create complete]  [264.4s]
+    Deployments                                                                                      
+               Revision  Rollout      Desired  Running  Failed  Pending                                       
+      PRIMARY  2         [completed]  1        1        0       0                                             
+  - A target group to connect the load balancer to your service on port 8501      [create complete]  [16.5s]
+  - An ECS task definition to group your containers and run them on ECS           [create complete]  [3.7s]
+  - An IAM role to control permissions for the containers in your tasks           [create complete]  [19.6s]
+✔ Deployed service ragagentservice.
+Recommended follow-up action:
+  - Your service is accessible at http://ragage-Publi-pPdOKgzdToC6-1040710355.us-east-1.elb.amazonaws.com over the internet.
+- Be a part of the Copilot ✨community✨!
+  Ask or answer a question, submit a feature request...
+  Visit 👉 https://aws.github.io/copilot-cli/community/get-involved/ to see how!
+sachintripathi@Sachins-MacBook-Air copilot_dem % 
