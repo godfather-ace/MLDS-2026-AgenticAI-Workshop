@@ -110,6 +110,8 @@ This project uses AWS Copilot to deploy a **Load Balanced Web Service** on ECS F
 ### 1. Initialise the Copilot application (first time only)
 
 ```bash
+curl -Lo copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-darwin && chmod +x copilot && sudo mv copilot /usr/local/bin/copilot && copilot --help
+
 copilot app init
 ```
 
