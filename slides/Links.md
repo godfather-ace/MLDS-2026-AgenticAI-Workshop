@@ -6,7 +6,7 @@ Slides for the workshops are available below.
 
 | Session | Slides |
 |---|---|
-| Workshop Slides | [View PPT](https://www.canva.com/design/DAHELmyxM8Y/T5peBHKWMNzStBBM3yu6fw/edit?utm_content=DAHELmyxM8Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) |
+| Workshop 1 Slide | [View PPT](https://www.canva.com/design/DAHELmyxM8Y/T5peBHKWMNzStBBM3yu6fw/edit?utm_content=DAHELmyxM8Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) |
 
 ---
 
