@@ -216,13 +216,3 @@ After completing this demo, you will understand:
 - ✅ How CrewAI agents can be **wrapped and exposed** as protocol-compliant services
 
 ---
-
-## 🤝 Contributing
-
-Feel free to open issues or submit PRs to improve this demo. Suggestions for extending it (e.g., adding streaming support, authentication, or a second specialist agent) are welcome!
-
----
-
-## 📄 License
-
-This project is part of the MLDS 2026 Workshop series. Refer to the root repository for license details.
